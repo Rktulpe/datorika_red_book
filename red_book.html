@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkanā Grāmata</title>
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+body {
+  background: #dce1df;
+  color: #4f585e;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+a.btn {
+  background: #0096a0;
+  border-radius: 4px;
+  box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+  color: #ffffff;
+  display: inline-block;
+  padding: 6px 30px 8px;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.1s 0s ease-out;
+}
+.no-touch a.btn:hover {
+  background: #00a2ad;
+  box-shadow: 0px 8px 2px 0 rgba(0,0,0,0.075);
+  transform: translateY(-2px);
+  transition: all 0.25s 0s ease-out;
+}
+.no-touch a.btn:active,
+a.btn:active {
+  background: #008a93;
+  box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+  transform: translate3d(0,1px,0);
+  transition: all 0.025s 0s ease-out;
+}
+div.cards {
+  margin: 80px auto;
+  max-width: 960px;
+  text-align: center;
+}
+div.card {
+  background: #ffffff;
+  display: inline-block;
+  margin: 8px;
+  max-width: 300px;
+  perspective: 1000;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s 0s ease-in;
+  width: 300px;
+  z-index: 1;
+}
+div.card img {
+  width: 300px;
+  height: 225px;
+}
+div.card .card__image-holder {
+  background: rgba(0,0,0,0.1);
+  height: 0;
+  padding-bottom: 75%;
+}
+div.card div.card-title {
+  background: #ffffff;
+  padding: 6px 15px 10px;
+  position: relative;
+  z-index: 0;
+}
+div.card div.card-title a.toggle-info {
+  border-radius: 32px;
+  height: 32px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 32px;
+}
+div.card div.card-title a.toggle-info span {
+  background: #ffffff;
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 16px;
+  transition: all 0.15s 0s ease-out;
+  width: 12px;
+}
+div.card div.card-title a.toggle-info span.left {
+  right: 10px;
+  top: 12px;
+  transform: rotate(45deg);
+}
+div.card div.card-title a.toggle-info span.right {
+  left: 10px;
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+div.card div.card-title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin: 0;
+  padding: 0;
+}
+div.card div.card-title h2 small {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+div.card div.card-description {
+  padding: 0 15px 10px;
+  position: relative;
+  font-size: 14px;
+}
+div.card div.card-actions {
+  box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
+  padding: 10px 15px 20px;
+  text-align: center;
+}
+div.card div.card-flap {
+  background: #d9d9d9;
+  position: absolute;
+  width: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+div.card div.flap1 {
+  transition: all 0.3s 0.3s ease-out;
+  z-index: -1;
+}
+div.card div.flap2 {
+  transition: all 0.3s 0s ease-out;
+  z-index: -2;
+}
+div.cards.showing div.card {
+  cursor: pointer;
+  opacity: 0.6;
+  transform: scale(0.88);
+}
+.no-touch  div.cards.showing div.card:hover {
+  opacity: 0.94;
+  transform: scale(0.92);
+}
+div.card.show {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+div.card.show div.card-title a.toggle-info {
+  background: #ff6666 !important;
+}
+div.card.show div.card-title a.toggle-info span {
+  top: 15px;
+}
+div.card.show div.card-title a.toggle-info span.left {
+  right: 10px;
+}
+div.card.show div.card-title a.toggle-info span.right {
+  left: 10px;
+}
+div.card.show div.card-flap {
+  background: #ffffff;
+  transform: rotateX(0deg);
+}
+div.card.show div.flap1 {
+  transition: all 0.3s 0s ease-out;
+}
+div.card.show div.flap2 {
+  transition: all 0.3s 0.2s ease-out;
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.navbar a {
+  float: none;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.report-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  z-index: 9;
+}
+
+
+    </style>
+</head>
+<body>
+  <a href="#" class="report-badge">Ziņot</a>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Lai aizsargātu un saglabātu mūsu dabas bagātības, ir svarīgi uzraudzīt un novērot aizsargājamos dzīvniekus, putnus un kukaiņus. Ja esi bijis laimīgs un redzējis kādu no šiem skaistajiem radījumiem, dalies ar mums ar savu pieredzi! Tas varētu iedrošināt citus cilvēkus vērot un aizsargāt mūsu dabu, lai arī turpmāk mēs varētu baudīt tās skaistumu un daudzveidību.
+</p>
+    </div>
+  </div>
+
+
+  <div class="navbar">
+    <a href="index.html">Sākums</a>
+    <a href="red_book.html">Sarkanā grāmata</a>
+    </div>
+
+    <div class="cards">
+      <input style="width: 100%; height: 50px; border-radius: 10px;" type="text" id="search-input" placeholder="Meklēt...">
+      <br>
+      <br>
+      <div id="card"></div>
+    </div>
+  
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+    
+      // Get the close button
+      var closeBtn = document.getElementsByClassName("close")[0];
+    
+      // Function to show the modal
+      function showModal() {
+        modal.style.display = "block";
+      }
+    
+      // Function to hide the modal
+      function hideModal() {
+        modal.style.display = "none";
+      }
+    
+      // Show the modal after 5 seconds
+      setTimeout(showModal, 5000);
+    
+      // Hide the modal when the close button is clicked
+      closeBtn.onclick = hideModal;
+    
+      // Hide the modal when the user clicks anywhere outside of the modal
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          hideModal();
+        }
+      }
+    </script>
+    
+
+    <script>
+      // Function to convert CSV to HTML card list
+      function csvToCardList(csvData) {
+        const lines = csvData.split('\n');
+        let cardList = '';
+        for (let i = 0; i < lines.length; i++) {
+          const columns = lines[i].split(';');
+          let content = '';
+          let button = '';
+          let smth = '<div class="card-title">';
+          let smth_end = '</div>';
+          let img = '';
+          let small = '';
+  
+          for (let j = 0; j < columns.length; j++) {
+            if (j < 3 || j == 6) {
+              if (columns[j].startsWith('https://')) {
+                img += '<div class="card__image-holder"><img class="card__image" src="' + columns[j] + '" alt="wave" /></div>';
+              } else if (/^[1-9]\d{0,4}$/.test(columns[j])) {
+                const id = columns[j];
+                button += '<a href="kukaini.html?id=' + id + '" class="toggle-info btn"><span class="left"></span><span class="right"></span></a>';
+              } else if (j === 2) {
+                content += '<h2 style="padding: 10px;">' + columns[1] + '<br>';
+                small += '<small>' + columns[2] + '</small></h2>';
+              }
+            }
+          }
+  
+          cardList += '<div class="card">' + img + smth + button + smth_end + content + small + '</div>';
+        }
+        return cardList;
+      }
+  
+      // Function to fetch CSV data using AJAX
+      function fetchCsvData(searchText = '') {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            const csvData = this.responseText;
+            const filteredData = csvData
+              .split('\n')
+              .filter(line => line.toLowerCase().includes(searchText))
+              .join('\n');
+            const cardList = csvToCardList(filteredData);
+            document.getElementById('card').innerHTML = cardList;
+          }
+        };
+        xmlhttp.open('GET', 'kukaiņi.csv', true); // Change the file name to match your file
+        xmlhttp.send();
+      }
+  
+      // Call the fetchCsvData function
+      fetchCsvData();
+  
+      // Add event listener for search input
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('keyup', function() {
+        const searchText = this.value.toLowerCase();
+        fetchCsvData(searchText);
+      });
+    </script>
+  
+</body>
+</html>

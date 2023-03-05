@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukaiņi details</title>
+    <style>
+
+body {
+  margin: 0;
+  background: #000; 
+}
+/* HEADINGS */
+
+
+
+  
+img { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+
+#polina { 
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+#polina h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+}
+#polina button { 
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+}
+#polina button:hover { 
+   background: rgba(0,0,0,0.5);
+}
+
+#polina a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background; 
+}
+#polina a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) { 
+    #polina div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<div id="polina">
+
+
+    <div id="table-container"></div>
+
+
+    </div>
+    <script>
+function csvToCardList(csvData) {
+    const lines = csvData.split('\n');
+    let cardList = '';
+    for (let i = 0; i < lines.length; i++) {
+        const columns = lines[i].split(';');
+        const id = columns[0];
+        if (id === getUrlParameter('id')) {
+            let content = '';
+            for (let j = 1; j < columns.length; j++) {
+                if (columns[j].startsWith('http')) {
+                    content += '<img src="' + columns[j] + '"id="bgvid">';
+                } else {
+                    if (j == 1) { // make 2nd column bold
+                        content += '<h2><strong>' + columns[j] + '</strong></h2>';
+                    } else if (j == 2) {
+                        
+                        content += '<h3><strong>' + columns[j] + '</strong></h3>';
+                        
+                    }else if (j == 8) { // make 8th column italic
+                        content += '<p><em>' + columns[j] + '</em></p>';
+                    } else if (j == 3) {
+
+                        content += '<p><strong>kategorija Sarkanajā grāmatā:  <strong>' + columns[j] + '</p>';
+
+                        
+                        
+                    } else if (j == 4) {
+
+
+                        content += '<p><strong>MK lēmums par īpaši aizsargājamajām dzīvnieku sugām:  <strong>' + columns[j] + '</p>';
+
+                                         
+                                               
+                        
+                    } else if (j == 5) {
+
+
+                        content += '<p><strong>Ir vai nav jāveido mikroliegums sugas aizsardzībai:  <strong>' + columns[j] + '</p>';
+
+
+
+                        
+                        
+                        
+                        
+                    } else {
+                        content += '<p>' + columns[j] + '</p>';
+                    }
+                }
+            }
+            cardList += '<div class="card">' + content + '</div>';
+            break;
+        }
+    }
+    return cardList;
+}
+
+
+        // Function to fetch CSV data using AJAX
+        function fetchCsvData() {
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    const csvData = this.responseText;
+                    const cardList = csvToCardList(csvData);
+                    document.getElementById('table-container').innerHTML = cardList;
+                }
+            };
+            xmlhttp.open('GET', 'kukaiņi.csv', true); // Change the file name to match your file
+            xmlhttp.send();
+        }
+
+        // Function to get the value of a URL parameter
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Call the fetchCsvData function
+        fetchCsvData();
+
+    </script>
+
+</body>
+</html>

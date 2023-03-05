@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+/* 
+This is the compiled CSS - Source at https://github.com/schliflo/PhotobloggR
+*/
+
+body,
+div,
+fieldset,
+form,
+html,
+label,
+legend {
+   margin: 0;
+   padding: 0
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0
+}
+
+td,
+th {
+   text-align: left;
+   vertical-align: top
+}
+
+caption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+td,
+th {
+   font-weight: 400
+}
+
+img {
+   border: 0
+}
+
+html {
+   box-sizing: border-box;
+   font-size: 10px
+}
+
+@media (min-width:768px) {
+   html {
+      font-size: 12px
+   }
+}
+
+@media (min-width:1280px) {
+   html {
+      font-size: 14px
+   }
+}
+
+body {
+   background: #fafafa;
+   font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+   font-size: 1.6rem;
+   color: #333
+}
+
+body.menu-open {
+   overflow: hidden
+}
+
+*,
+:after,
+:before {
+   box-sizing: inherit
+}
+
+::-moz-selection {
+   background: transparent;
+   color: #f1f2b5
+}
+
+::selection {
+   background: transparent;
+   color: #f1f2b5
+}
+
+.clearfix:after {
+   content: "";
+   display: table;
+   clear: both
+}
+
+.pull-left {
+   float: left!important
+}
+
+.pull-right {
+   float: right!important
+}
+
+a {
+   text-decoration: none;
+   color: #333;
+   position: relative;
+   padding-right: 1rem
+}
+
+a:before {
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #333;
+   -webkit-transform-origin: right;
+   transform-origin: right;
+   -webkit-transform: translateX(0) scaleX(.25);
+   transform: translateX(0) scaleX(.25);
+   -webkit-transition: -webkit-transform .32s ease-in-out;
+   transition: -webkit-transform .32s ease-in-out;
+   transition: transform .32s ease-in-out;
+   transition: transform .32s ease-in-out, -webkit-transform .32s ease-in-out
+}
+
+a:after,
+a:before {
+   content: '';
+   display: block;
+   position: absolute;
+   top: 50%;
+   opacity: .5
+}
+
+a:after {
+   right: 0;
+   height: .7rem;
+   width: .7rem;
+   border-top: .1rem solid #333;
+   border-right: .1rem solid #333;
+   -webkit-transform: translateY(-45%) rotate(45deg);
+   transform: translateY(-45%) rotate(45deg)
+}
+
+a:hover:before {
+   -webkit-transform: scaleX(.95);
+   transform: scaleX(.95)
+}
+
+button {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   outline: none;
+   border: none;
+   font-size: inherit;
+   font-family: inherit;
+   background: transparent;
+   padding: 0;
+   cursor: pointer;
+   display: inline-block;
+   position: relative
+}
+
+button:after,
+button:before {
+   content: '';
+   display: block;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #333;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transition: -webkit-transform .32s ease-in-out;
+   transition: -webkit-transform .32s ease-in-out;
+   transition: transform .32s ease-in-out;
+   transition: transform .32s ease-in-out, -webkit-transform .32s ease-in-out
+}
+
+button:before {
+   bottom: 0
+}
+
+button:after {
+   top: 0
+}
+
+button:hover:after,
+button:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1)
+}
+
+.menu-open button#menu-trigger:before {
+   -webkit-transform: scaleX(1) translateY(-1.2rem) rotate(45deg);
+   transform: scaleX(1) translateY(-1.2rem) rotate(45deg)
+}
+
+.menu-open button#menu-trigger:after {
+   -webkit-transform: scaleX(1) translateY(1.2rem) rotate(-45deg);
+   transform: scaleX(1) translateY(1.2rem) rotate(-45deg)
+}
+
+.browserupgrade {
+   margin: 0;
+   background-color: #e8ca86;
+   padding: .6em
+}
+
+.header-main {
+   padding: 2rem 2.5rem;
+   font-size: 2.2rem;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   left: 0;
+   right: 0;
+   z-index: 100
+}
+
+.header-main:before {
+   pointer-events: none;
+   display: block;
+   content: '';
+   position: absolute;
+   width: 101%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   opacity: 0;
+   background-color: #fafafa;
+   -webkit-transition: opacity .32s ease-in-out;
+   transition: opacity .32s ease-in-out
+}
+
+.header-main:hover:before,
+.menu-open .header-main:before {
+   opacity: 1
+}
+
+#navigation {
+   display: block;
+   position: fixed;
+   height: calc(100vh - 6.5rem);
+   width: 100vw;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   padding: 4.2rem;
+   background-color: #fafafa;
+   opacity: 0;
+   -webkit-transition: opacity .32s ease-in-out;
+   transition: opacity .32s ease-in-out;
+   -webkit-transition-delay: .32s;
+   transition-delay: .32s;
+   pointer-events: none;
+   z-index: -1
+}
+
+#navigation ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   height: 100%;
+   width: 100%
+}
+
+#navigation ul,
+#navigation ul li {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex
+}
+
+#navigation ul li {
+   text-align: center;
+   -webkit-box-flex: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+   opacity: 0;
+   -webkit-transform: translateY(100%);
+   transform: translateY(100%);
+   -webkit-transition: opacity .32s ease-in, -webkit-transform .32s ease-in;
+   transition: opacity .32s ease-in, -webkit-transform .32s ease-in;
+   transition: opacity .32s ease-in, transform .32s ease-in;
+   transition: opacity .32s ease-in, transform .32s ease-in, -webkit-transform .32s ease-in
+}
+
+#navigation ul li:nth-child(1) {
+   -webkit-transition-delay: .16s;
+   transition-delay: .16s
+}
+
+#navigation ul li:nth-child(2) {
+   -webkit-transition-delay: .08s;
+   transition-delay: .08s
+}
+
+#navigation ul li:nth-child(3) {
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s
+}
+
+#navigation ul li:nth-child(4) {
+   -webkit-transition-delay: -.08s;
+   transition-delay: -.08s
+}
+
+#navigation ul li a {
+   margin: auto
+}
+
+.menu-open #navigation {
+   opacity: 1;
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s;
+   pointer-events: auto;
+   z-index: 110
+}
+
+.menu-open #navigation ul li {
+   opacity: 1;
+   -webkit-transform: translateY(0);
+   transform: translateY(0);
+   -webkit-transition: opacity .32s ease-in, -webkit-transform .32s ease-out;
+   transition: opacity .32s ease-in, -webkit-transform .32s ease-out;
+   transition: opacity .32s ease-in, transform .32s ease-out;
+   transition: opacity .32s ease-in, transform .32s ease-out, -webkit-transform .32s ease-out
+}
+
+.menu-open #navigation ul li:nth-child(1) {
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s
+}
+
+.menu-open #navigation ul li:nth-child(2) {
+   -webkit-transition-delay: .08s;
+   transition-delay: .08s
+}
+
+.menu-open #navigation ul li:nth-child(3) {
+   -webkit-transition-delay: .16s;
+   transition-delay: .16s
+}
+
+.menu-open #navigation ul li:nth-child(4) {
+   -webkit-transition-delay: .24s;
+   transition-delay: .24s
+}
+
+#content {
+   margin-top: 6.5rem;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: row;
+   flex-direction: row;
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap
+}
+
+.article {
+   -ms-flex-preferred-size: 32rem;
+   flex-basis: 32rem;
+   min-height: 32rem;
+   -webkit-box-flex: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+   background-size: cover;
+   background-position: 50%;
+   position: relative;
+   overflow: hidden
+}
+
+.article-title {
+   padding: 2rem;
+   position: absolute;
+   width: 100%;
+   top: 50%;
+   -webkit-transform: translateY(-50%);
+   transform: translateY(-50%)
+}
+
+.article-title:after,
+.article-title:before {
+   pointer-events: none;
+   display: block;
+   content: '';
+   position: absolute;
+   width: 101%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   opacity: .66;
+   -webkit-transform: scale(1) rotate(0deg);
+   transform: scale(1) rotate(0deg);
+   -webkit-transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   -webkit-transition-delay: .32s;
+   transition-delay: .32s;
+   -webkit-transform-style: preserve-3d;
+   will-change: opacity, transform
+}
+
+.article-title:before {
+   background-color: #fafafa
+}
+
+.article-title:after {
+   background-image: -webkit-linear-gradient(315deg, #f1f2b5, #218997);
+   background-image: linear-gradient(135deg, #f1f2b5, #218997);
+   opacity: 0
+}
+
+.article-title h2 {
+   margin: 0;
+   text-align: center;
+   -webkit-transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   -webkit-transition-delay: .32s;
+   transition-delay: .32s;
+   will-change: opacity, transform
+}
+
+.article-description,
+.article-footer {
+   opacity: 0;
+   -webkit-transform: translateY(33%);
+   transform: translateY(33%);
+   -webkit-transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out;
+   transition: opacity .32s ease-in-out, transform .32s ease-in-out, -webkit-transform .32s ease-in-out;
+   will-change: opacity, transform
+}
+
+.article-description {
+   padding: 1rem 2.5rem;
+   -webkit-transition-delay: .16s;
+   transition-delay: .16s
+}
+
+.article-footer {
+   opacity: 0;
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s
+}
+
+.article-footer ul {
+   list-style: none;
+   padding: 0 2.2rem;
+   margin: 0
+}
+
+.article-footer ul li {
+   display: inline-block;
+   padding: .3rem;
+   margin: 0 .5rem .5rem 0
+}
+
+.article-footer ul li:before {
+   content: '#'
+}
+
+.article:hover .article-title:after,
+.article:hover .article-title:before {
+   -webkit-transform: scale(1.337, 10) rotate(1.337deg);
+   transform: scale(1.337, 10) rotate(1.337deg);
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s
+}
+
+.article:hover .article-title:before {
+   opacity: 0
+}
+
+.article:hover .article-title:after {
+   opacity: .85
+}
+
+.article:hover .article-title h2 {
+   opacity: 0;
+   -webkit-transform: translateY(-200%);
+   transform: translateY(-200%);
+   -webkit-transition-delay: 0s;
+   transition-delay: 0s
+}
+
+.article:hover .article-description,
+.article:hover .article-footer {
+   opacity: 1;
+   -webkit-transform: translateY(0);
+   transform: translateY(0)
+}
+
+.article:hover .article-description {
+   -webkit-transition-delay: .16s;
+   transition-delay: .16s
+}
+
+.article:hover .article-footer {
+   -webkit-transition-delay: .32s;
+   transition-delay: .32s
+}
+  </style>
+</head>
+<body>
+  <header class="header-main clearfix">
+    <div class="pull-left">
+       <span id="site-title">Sarkanā Grāmata</span>
+    </div>
+    <div class="pull-right">
+       <button id="menu-trigger">Izvēlne</button>
+       <nav id="navigation">
+          <ul>
+             <li><a href="index.html">Sākums</a></li>
+             <li><a href="red_book.html">Sarkanā Grāmata</a></li>
+             <li><a href="alert.html">Ziņot</a></li>
+          </ul>
+       </nav>
+    </div>
+ </header>
+ 
+ 
+ <section id="content">
+  <article class="article" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrfyvdZgwIlaMZIRvQ7m4LmKcVh15fyy8lg&usqp=CAU)">
+    <header class="article-title">
+       <h2>Visi Dzīvnieki</h2>
+    </header>
+    <p class="article-description">Dzīvnieki ir liela daudzšūnu organismu grupa, kas spēj kustēties un reaģēt uz apkārtējo vidi, barojas, pārtiekot no citiem organismiem.
+    </p>
+
+ </article>
+    <article class="article" style="background-image: url(https://vs.lv/engine/client/content/articles/mega/1579081803592f5d87625629f3395065f86f106770018.jpg)">
+       <header class="article-title">
+          <h2>Kukaiņi</h2>
+       </header>
+       <p class="article-description">
+        Kukaiņi ir posmkāju tipa klase ar pasaulē vislielāko sugu daudzveidību. Tiek uzskatīts, ka pasaulē ir no 6 līdz 10 miljoniem kukaiņu sugu. Pazīstamākie ir tauriņi, vaboles, mušas, skudras un bites. Kukaiņi izplatīti visā pasaulē un ir sastopami visdažādākajos biotopos. Zinātni, kas pēta kukaiņus, sauc par entomoloģiju. Tie radušies laika periodā starp devonu un karbonu, pirms vairāk nekā 350 miljoniem gadu.
+       </p>
+ 
+    </article>
+    <article class="article" style="background-image: url(https://p2.piqsels.com/preview/365/836/1013/snail-shells-arianta-arbustorum-schalenweichtiere-reptiles.jpg)">
+       <header class="article-title">
+          <h2>Gliemji</h2>
+       </header>
+       <p class="article-description">Gliemji jeb moluski ir bilaterālo dzīvnieku tips, kas apvieno 8 mūsdienu klases un 2 izmirušas klases. Pasaulē ir zināms ap 130 000 gliemju sugu, tādēļ pēc sugu skaita dzīvnieku valstī gliemju tips ieņem otro vietu tūlīt aiz posmkājiem.
+       </p>
+   
+    </article>
+    <article class="article" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcoIJj7Tm-COcRsi06sH7_AAr1fpfaZZwV-Q&usqp=CAU)">
+       <header class="article-title">
+          <h2>Kaulzivis</h2>
+       </header>
+       <p class="article-description">Kaulzivis ir mugurkaulnieku megaklase, pie kuras pieder vairāk nekā 40 zivju kārtas, 435 dzimtas un 28 000 sugu. Šajā grupā ietilpst apmēram 96% no visām pasaules zivju sugām. Tā ir ne tikai lielākā zivju taksonomiskā vienība, bet arī lielākā mugurkaulnieku grupa.
+       </p>
+    </article>
+    <article class="article" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/8e/Rana_arvalis2.jpg)">
+       <header class="article-title">
+          <h2>Abinieki</h2>
+       </header>
+       <p class="article-description">Mūsdienās sastopamas aptuveni 5000 abinieku sugu. Latvijā dzīvo 13 abinieku sugas - 6 varžu sugas, 5 krupju sugas un 2 tritonu sugas. Visi Latvijas abinieki ir saudzējami, jo zūd to dzīvesvide. Ūdensbaseini tiek piesārņoti ar sadzīves un rūpnieciskajiem atkritumiem. Abiniekiem kaitē arī pesticīdu - kaitēkļu apkarošanas līdzekļu nonākšana vidē.
+       </p>
+   
+    </article>
+    <article class="article" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f3/Lacerta_vivipara_1_%28Marek_Szczepanek%29.jpg)">
+       <header class="article-title">
+          <h2>Rāpuļi</h2>
+       </header>
+       <p class="article-description">Rāpuļi ir pirmā īsto mugurkaulnieku klase, kuriem ir augstāko sauszemes mugurkaulnieku galvenās iezīmes. Viss dzīves cikls notiek uz sauszemes. Bet tomēr līdzīgi abiniekiem tie ir aukstasiņu dzīvnieki ar nepastāvīgu ķermeņa temperatūru. Rāpuļus pēta zooloģijas apakšnozare — herpetoloģija.
+       </p>
+   
+    </article>
+    <article class="article" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/Passer_domesticus2.jpg)">
+       <header class="article-title">
+          <h2>Putni</h2>
+       </header>
+       <p class="article-description">Putni ir ar spalvām klāta endotermiska mugurkaulnieku klase, kas dēj olas un primāri ir specializējušies lidošanai. Kopā pavisam ir vairāk nekā 10 000 putnu sugu. Tie dzīvo visas planētas ekosistēmās, sākot no Arktikas līdz pat Antarktīdai.
+       </p>
+ 
+    </article>
+    <article class="article" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Rothirsch.jpg/375px-Rothirsch.jpg)">
+       <header class="article-title">
+          <h2>Zīdītāji</h2>
+       </header>
+       <p class="article-description">Zīdītāji ir mugurkaulnieku attīstītākā klase. Organisma augstākā attīstība izpaužas visu orgānu sistēmu lielākā diferenciācijā un galvas smadzeņu visaugstākajā attīstībā. Tajās sevišķi attīstīts augstākās nervu darbības centrs — pusložu garoza, ko veido pelēkā smadzeņu viela. Sakarā ar to zīdītāju uzvedībai ir ļoti dažādas izpausmes. To veicina ļoti saliktie maņu orgāni, sevišķi dzirdes un ožas orgāni.
+       </p>
+
+    </article>
+   
+
+
+  
+
+
+
+ </section>
+ 
+<script>
+
+
+  /* 
+This is the compiled JS - Source at https://github.com/schliflo/PhotobloggR
+*/
+"use strict";
+! function() {
+   var n, t, e, c = function() {
+         t = "menu-trigger", e = "menu-open"
+      },
+      o = function() {
+         n.classList.toggle(e)
+      },
+      u = function() {
+         document.getElementById(t).addEventListener("click", function() {
+            o()
+         })
+      },
+      i = function() {
+         n = document.querySelector("body"), c(), u()
+      };
+   i()
+}();
+</script>
+</body>
+</html>
