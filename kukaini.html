@@ -7,104 +7,216 @@
     <title>Kukaiņi details</title>
     <style>
 
+
 body {
-  margin: 0;
-  background: #000; 
-}
-/* HEADINGS */
-
-
-
-  
-img { 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
- background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-image: url('https://img.freepik.com/free-vector/detailed-jungle-background_23-2148953379.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-size: cover;
-  transition: 1s opacity;
-}
-.stopfade { 
-   opacity: .5;
+  color: #4f585e;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
-#polina { 
-  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
-  font-weight:100; 
-  background: rgba(0,0,0,0.5);
-  color: white;
-  padding: 2rem;
-  width: 33%;
-  margin:2rem;
-  float: right;
-  font-size: 1.2rem;
-}
-#polina h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  margin-top: 0;
-  letter-spacing: .3rem;
-}
-#polina button { 
+
+
+
+.image {
   display: block;
-  width: 80%;
-  padding: .4rem;
-  border: none; 
-  margin: 1rem auto; 
-  font-size: 1.3rem;
-  background: rgba(255,255,255,0.23);
-  color: #fff;
-  border-radius: 3px; 
-  cursor: pointer;
-  transition: .3s background;
-}
-#polina button:hover { 
-   background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: auto;
+border-radius: 10px 10px 0px 0px;
+
 }
 
-#polina a {
-  display: inline-block;
-  color: #fff;
+
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: darkgreen;
+  z-index: 25;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: gold;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  background:rgba(0,0,0,0.5);
-  padding: .5rem;
-  transition: .6s background; 
 }
-#polina a:hover{
-  background:rgba(0,0,0,0.9);
+
+nav li a:hover {
+  background-color: #ddd;
+  color: black;
 }
-@media screen and (max-width: 500px) { 
-    #polina div{width:70%;} 
+
+.bottom-img-container {
+  position: fixed;
+  bottom: -10px;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
 }
-@media screen and (max-device-width: 800px) {
-  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
+
+.bottom-img {
+  width: 100%;
+  pointer-events: none;
 }
+
+.img-container {
+  position: fixed;
+  top: 100px;
+  width: 30%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+
+
+.text {
+
+background: #00000050;
+padding: 10px;
+color: white;
+height: 300px;
+  overflow-y: auto;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+}
+
+.text::-webkit-scrollbar {
+  width: 5px;
+}
+
+.text::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.text::-webkit-scrollbar-thumb {
+  background-color: darkgreen;
+}
+
+
+
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: white;
+  opacity: 0.5;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 0;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 50%);
+}
+
+.right-arrow {
+  right: 0;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
     </style>
 </head>
 <body>
 
 
 
+    <nav>
+        <ul>
+          <li><a href="index.html"><strong>Sākums</strong></a></li>
+          <li><a href="red_book.html"><strong>Sarkanā Grāmata</strong></a></li>
+        </ul>
+      </nav>
 
 
 
 
+      <div class="bottom-img-container">
+        <img class="bottom-img" src="https://th.bing.com/th/id/R.841edd45654d5b0e171ec9b027219859?rik=xWRs%2fhBTcRV44w&pid=ImgRaw&r=0" />
+    
+      </div>
 
-<div id="polina">
+    
+<div class="left-arrow"></div>
+<div class="right-arrow"></div>
 
 
     <div id="table-container"></div>
 
 
-    </div>
     <script>
+
+// get the current URL
+let currentUrl = window.location.href;
+
+// get the ID from the URL
+let id = parseInt(currentUrl.split('=')[1]);
+
+// add event listeners to the arrows
+document.querySelector('.left-arrow').addEventListener('click', () => {
+  // subtract 1 from the ID
+  id--;
+  // construct the new URL
+  let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+  // navigate to the new URL
+  window.location.href = newUrl;
+});
+
+document.querySelector('.right-arrow').addEventListener('click', () => {
+  // add 1 to the ID
+  id++;
+  // construct the new URL
+  let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+  // navigate to the new URL
+  window.location.href = newUrl;
+});
+
+// add event listeners for left and right arrow keys
+document.addEventListener('keydown', (event) => {
+  if (event.keyCode === 37) { // left arrow key
+    id--;
+    let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+    window.location.href = newUrl;
+  } else if (event.keyCode === 39) { // right arrow key
+    id++;
+    let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+    window.location.href = newUrl;
+  }
+});
+
+
 function csvToCardList(csvData) {
     const lines = csvData.split('\n');
     let cardList = '';
@@ -113,9 +225,16 @@ function csvToCardList(csvData) {
         const id = columns[0];
         if (id === getUrlParameter('id')) {
             let content = '';
+            let img = '';
             for (let j = 1; j < columns.length; j++) {
                 if (columns[j].startsWith('http')) {
-                    content += '<img src="' + columns[j] + '"id="bgvid">';
+                    img += '<div class="container"><div class="img-container"><img class="image" src="' + columns[j] + '" alt="image">';
+
+
+
+
+                    
+
                 } else {
                     if (j == 1) { // make 2nd column bold
                         content += '<h2><strong>' + columns[j] + '</strong></h2>';
@@ -155,7 +274,7 @@ function csvToCardList(csvData) {
                     }
                 }
             }
-            cardList += '<div class="card">' + content + '</div>';
+            cardList += '<div class="card">' + img + '<div class="text">' + content + '</div></div></div></div>';
             break;
         }
     }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sarkanā Grāmata</title>
   <style>
 
 
@@ -68,7 +68,10 @@ html {
 }
 
 body {
-   background: #fafafa;
+   background-image: url('https://img.freepik.com/free-vector/detailed-jungle-background_23-2148953379.jpg');
+   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
    font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
    font-size: 1.6rem;
    color: #333
@@ -165,7 +168,8 @@ button {
    padding: 0;
    cursor: pointer;
    display: inline-block;
-   position: relative
+   position: relative;
+   color: gold;
 }
 
 button:after,
@@ -197,7 +201,8 @@ button:after {
 button:hover:after,
 button:hover:before {
    -webkit-transform: scaleX(1);
-   transform: scaleX(1)
+   transform: scaleX(1);
+   color: gold;
 }
 
 .menu-open button#menu-trigger:before {
@@ -224,7 +229,9 @@ button:hover:before {
    width: 100%;
    left: 0;
    right: 0;
-   z-index: 100
+   z-index: 100;
+   background: darkgreen;
+   color: gold;
 }
 
 .header-main:before {
@@ -238,7 +245,7 @@ button:hover:before {
    left: 0;
    z-index: -1;
    opacity: 0;
-   background-color: #fafafa;
+   background-color: #00000063;
    -webkit-transition: opacity .32s ease-in-out;
    transition: opacity .32s ease-in-out
 }
@@ -526,12 +533,34 @@ button:hover:before {
    -webkit-transition-delay: .32s;
    transition-delay: .32s
 }
+
+
+.bottom-img-container {
+  position: fixed;
+  bottom: -10px;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+}
+
+.bottom-img {
+  width: 100%;
+  pointer-events: none;
+}
+
+
+
   </style>
 </head>
 <body>
   <header class="header-main clearfix">
     <div class="pull-left">
-       <span id="site-title">Sarkanā Grāmata</span>
+       <a style="color: gold;" href="red_book.html"><span id="site-title">Sarkanā Grāmata</span></a>
     </div>
     <div class="pull-right">
        <button id="menu-trigger">Izvēlne</button>
@@ -544,6 +573,12 @@ button:hover:before {
        </nav>
     </div>
  </header>
+
+
+ <div class="bottom-img-container">
+   <img class="bottom-img" src="https://th.bing.com/th/id/R.841edd45654d5b0e171ec9b027219859?rik=xWRs%2fhBTcRV44w&pid=ImgRaw&r=0" />
+
+ </div>
  
  
  <section id="content">
