@@ -178,6 +178,10 @@ height: 300px;
 
     <script>
 
+
+
+
+
 // get the current URL
 let currentUrl = window.location.href;
 
@@ -304,6 +308,21 @@ function csvToCardList(csvData) {
 
         // Call the fetchCsvData function
         fetchCsvData();
+
+
+
+
+
+        
+
+const fixedDiv = document.getElementById('img-container');
+const height = fixedDiv.offsetHeight;
+
+const heightDiv = document.getElementById('text');
+heightDiv.style.height = `${height}px`;
+
+
+
 
     </script>
 
