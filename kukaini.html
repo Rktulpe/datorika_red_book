@@ -96,6 +96,27 @@ nav li a:hover {
   margin: auto;
 }
 
+@media (max-width:1250px) {
+  .img-container {
+    width: 45%;
+
+   }
+}
+
+
+@media (max-width:768px) {
+  .img-container {
+    width: 99%;
+
+   }
+}
+
+
+
+
+
+
+
 
 
 
@@ -180,8 +201,23 @@ height: 300px;
     <script>
 
 
+var div = document.getElementsByClassName("text");
 
+function isScrolledIntoView(elem) {
+  var docViewTop = window.pageYOffset;
+  var docViewBottom = docViewTop + window.innerHeight;
+  var elemTop = elem.offsetTop;
+  var elemBottom = elemTop + elem.offsetHeight;
+  return (elemBottom <= docViewBottom);
+}
 
+window.onscroll = function() {
+  if (isScrolledIntoView(div)) {
+    div.style.overflowY = "scroll";
+  } else {
+    div.style.overflowY = "hidden";
+  }
+};
 
 // get the current URL
 let currentUrl = window.location.href;
