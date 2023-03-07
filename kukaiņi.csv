@@ -103,9 +103,9 @@
 103;Zobspārnu sfings;Proserpinus proserpina Pallas;;+;+;https://api.gbif.org/v1/image/unsafe/fit-in/500x/https%3A%2F%2Finaturalist-open-data.s3.amazonaws.com%2Fphotos%2F198052812%2Foriginal.jpg;
 104;Lielais silsamtenis;Hipparchia alcyone Den. et Schiff.;III;+;;https://api.gbif.org/v1/image/unsafe/fit-in/500x/https%3A%2F%2Fstatic.inaturalist.org%2Fphotos%2F211156765%2Foriginal.jpeg;
 105;Sarkanspārnu sisenis, parkšķis;Psophus stridulus L.;III;;;https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/IKAl_20100801_Psophus_stridulus.jpg/330px-IKAl_20100801_Psophus_stridulus.jpg;
-106;Gaiļbiksīšu sīkraibenis;Hamearis lucina L.;III;+;;;
-107;Meža sīksamtenis;Coenonympha hero L.;;+;;;
-108;Lielā skrejvabole;Carabus coriaceus L.;III;;;;
+106;Gaiļbiksīšu sīkraibenis;Hamearis lucina L.;III;+;;https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Duke_of_Burgundy_%28Hamearis_lucina%29_male.jpg/220px-Duke_of_Burgundy_%28Hamearis_lucina%29_male.jpg;
+107;Meža sīksamtenis;Coenonympha hero L.;;+;;https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Coenonympha_hero_-_Nature_Conservation-001-073-g035.jpg/200px-Coenonympha_hero_-_Nature_Conservation-001-073-g035.jpg;
+108;Lielā skrejvabole;Carabus coriaceus L.;III;;;https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Carabus_coriaceus1.jpg/220px-Carabus_coriaceus1.jpg;
 109;Purvāju skrejvabole;Carabus menetriesi Hummel;II;+;;;
 110;Spožā skrejvabole;Carabus nitens L.;II;;;;
 111;Velvētā skrejvabole;Carabus convexus F.;III;;;;
@@ -116,7 +116,7 @@
 116;Jūrmalas smilvabole;Cicindela maritima Dejean;III;;;;
 117;Raibspārnu smiltājsisenis;Poedipoda coerulescens L.;I;+;;;
 118;Sarkanspārnu smiltājsisenis;Bryodema tuberculatum F.;0;+;+;;
-119;Zilspārnu smiltājsisenis;Sphingonotus caerulans L.;I;+;;;
+119;Zilspārnu smiltājsisenis;Sphingonotus caerulans L.;I;+;;https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2015.07.11.-08-Mulde_Eilenburg--Blaufluegelige_Sandschrecke.jpg/220px-2015.07.11.-08-Mulde_Eilenburg--Blaufluegelige_Sandschrecke.jpg;
 120;Zvīņotā smilbite;Andrena curvungula Thoms.;I;;;;
 121;Mainīgā spāre;Libellula fulva Mueller;I;+;;;
 122;Sarkanais sprakšķis;Denticollis rubens Pill.;;+;;;
