@@ -178,6 +178,10 @@ height: 300px;
 
     <script>
 
+
+
+
+
 // get the current URL
 let currentUrl = window.location.href;
 
@@ -189,7 +193,7 @@ document.querySelector('.left-arrow').addEventListener('click', () => {
   // subtract 1 from the ID
   id--;
   // construct the new URL
-  let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+  let newUrl = `kukaini.html?id=${id}`;
   // navigate to the new URL
   window.location.href = newUrl;
 });
@@ -198,7 +202,7 @@ document.querySelector('.right-arrow').addEventListener('click', () => {
   // add 1 to the ID
   id++;
   // construct the new URL
-  let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+  let newUrl = `kukaini.html?id=${id}`;
   // navigate to the new URL
   window.location.href = newUrl;
 });
@@ -207,11 +211,11 @@ document.querySelector('.right-arrow').addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
   if (event.keyCode === 37) { // left arrow key
     id--;
-    let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+    let newUrl = `kukaini.html?id=${id}`;
     window.location.href = newUrl;
   } else if (event.keyCode === 39) { // right arrow key
     id++;
-    let newUrl = `file:///C:/xampp2/htdocs/skola/kukaini.html?id=${id}`;
+    let newUrl = `kukaini.html?id=${id}`;
     window.location.href = newUrl;
   }
 });
@@ -304,6 +308,21 @@ function csvToCardList(csvData) {
 
         // Call the fetchCsvData function
         fetchCsvData();
+
+
+
+
+
+        
+
+const fixedDiv = document.getElementById('img-container');
+const height = fixedDiv.offsetHeight;
+
+const heightDiv = document.getElementById('text');
+heightDiv.style.height = `${height}px`;
+
+
+
 
     </script>
 
