@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ziņo</title>
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+body {
+  background-image: url('https://img.freepik.com/free-vector/detailed-jungle-background_23-2148953379.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #4f585e;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: darkgreen;
+  z-index: 25;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: gold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+.bottom-img-container {
+  position: fixed;
+  bottom: -10px;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+}
+
+.bottom-img {
+  width: 100%;
+  pointer-events: none;
+}
+
+
+.top-img-container {
+  position: fixed;
+  top: 38px;
+  width: 100%;
+  z-index: 20;
+  transform: rotate(180deg);
+  pointer-events: none;
+  
+}
+
+
+.top-img {
+  width: 100%;
+  pointer-events: none;
+}
+
+
+
+
+h1 {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+        background-color: #4f585e;
+        color: white;
+        padding: 10px;
+      }
+
+
+
+
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 50px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        h1 {
+          font-size: 40px;
+        }
+      }
+
+
+    </style>
+</head>
+<body>
+  <a id="openModalBtn_report" href="#" class="report-badge">Ziņot</a>
+
+
+  <div class="bottom-img-container">
+    <img class="bottom-img" src="https://th.bing.com/th/id/R.841edd45654d5b0e171ec9b027219859?rik=xWRs%2fhBTcRV44w&pid=ImgRaw&r=0" />
+
+  </div>
+
+
+  <div class="search-container">
+    <input class="search" style="width: 100%; height: 50px; border-radius: 10px;" type="text" id="search-input" placeholder="Meklēt...">
+
+  </div>
+
+  <div class="top-img-container">
+    <img class="top-img" src="https://th.bing.com/th/id/R.841edd45654d5b0e171ec9b027219859?rik=xWRs%2fhBTcRV44w&pid=ImgRaw&r=0" />
+  </div>
+  
+
+
+  <nav>
+    <ul>
+      <li><a href="index.html"><strong>Sākums</strong></a></li>
+      <li><a href="red_book.html"><strong>Sarkanā Grāmata</strong></a></li>
+    </ul>
+  </nav>
+  <br>
+
+  
+   <h1>Works only with <u>PHP</u></h1>
+  
+</body>
+</html>
